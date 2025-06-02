@@ -121,7 +121,7 @@
          document.getElementById("tg-link").addEventListener("click", () => {
              let currentCount = localStorage.getItem("points");
              if(currentCount == null) currentCount = 0;
-             localStorage.setItem("points", currentCount + 5);
+             localStorage.setItem("points", 5 + currentCount);
              document.getElementById("tg-task").textContent += "✅";
              document.getElementById("points-count").textContent = currentCount + 5;
          });
