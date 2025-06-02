@@ -10,12 +10,14 @@
   
     <style>
         html, body {
-          min-width: 100%;
-          min-height: 100%;
-          text-align: center;
-          color: var(--tg-theme-text-color);
-          font-family: arial;
-          backgroung: var(--tg-theme-bg-color);
+            min-width: 100%;
+            min-height: 100%;
+            text-align: center;
+            color: var(--tg-theme-text-color);
+            font-family: arial;
+            backgroung: var(--tg-theme-bg-color);
+            padding: 0px;
+            margin: 0px;
         }
 
         .what {
@@ -41,18 +43,18 @@
             color: var(--tg-theme-link-color);
         }
 
-        .thetext {
+        .title {
             font-size: large
         }
     </style>
     
     <div id = "start-screen-container">
-        <h3>Привет! Что хочешь заработать: деньги или известность?<h3>
+        <label class = "title">Привет! Что хочешь заработать: деньги или известность?</label><br><br>
         
         <button id = "moneys" class = "what">Деньги 💰</button><button class = "what" id = "fame">Известность 🎯</button>
     </div>
     <div id = "moneys-container" style = "display: none">
-        <h3>Заработано баллов: <label id = "points-count"></label></h3>
+        <label class = "title">Заработано баллов: <label id = "points-count"></label></label><br><br>
         
         <div id = "tasksList">
             Новые задания для тебя:
@@ -63,7 +65,7 @@
         </div>
     </div>
     <div id = "fame-container" style = "display: none">
-        <label class = "thetext">Ого! Тогда пишите админу!</label>
+        <label class = "title">Ого! Тогда пишите админу!</label><br><br>
         ...Админ добавит задание, связанное с твоим каналом или трендом в это приложение.<br><br>
     </div>
     <button id = "back-button" style = "display: none">🔄 На главную 🔄</button>
