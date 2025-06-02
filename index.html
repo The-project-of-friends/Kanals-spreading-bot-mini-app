@@ -30,14 +30,19 @@
             border-radius: 3vw;
             font-size: large;
             padding: 1vh;
+            border-width: 0px;
         }
         
-        li {
+        li > * {
             text-align: left;
         }
         
         a {
             color: var(--tg-theme-link-color);
+        }
+
+        .thetext {
+            font-size: large
         }
     </style>
     
@@ -58,7 +63,7 @@
         </div>
     </div>
     <div id = "fame-container" style = "display: none">
-        <h3>Ого! Тогда пишите админу!</h3>
+        <label class = "thetext">Ого! Тогда пишите админу!</label>
         ...Админ добавит задание, связанное с твоим каналом или трендом в это приложение.<br><br>
     </div>
     <button id = "back-button" style = "display: none">🔄 На главную 🔄</button>
