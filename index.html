@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title>Каналы и тренды</title>
+</head>
+
+<body>
+  <script src = "https://telegram.org/js/telegram-web-app.js"></script>
+  
+    <style>
+        html, body {
+          min-width: 100%;
+          min-height: 100%;
+          text-align: center;
+          color: var(--tg-theme-text-color);
+          font-family: arial;
+          backgroung: var(--tg-theme-bg-color);
+        }
+
+        .what {
+            width: 40vw;
+            height: 10vh;
+            margin-left: 5vw;
+        }
+        
+        button {
+            color: var(--tg-theme-button-text-color);
+            background: var(--tg-theme-button-color);
+            border-radius: 3vw;
+            font-size: large;
+            padding: 1vh;
+        }
+        
+        li {
+            text-align: left;
+        }
+        
+        a {
+            color: var(--tg-theme-link-color);
+        }
+    </style>
+    
+    <div id = "start-screen-container">
+        <h3>Привет! Что хочешь заработать: деньги или известность?<h3>
+        
+        <button id = "moneys" class = "what">Деньги 💰</button><button class = "what" id = "fame">Известность 🎯</button>
+    </div>
+    <div id = "moneys-container" style = "display: none">
+        <h3>Заработано баллов: <label id = "points-count"></label></h3>
+        
+        <div id = "tasksList">
+            Новые задания для тебя:
+            <ul>
+            <li id = "tg-task">Просмотреть посты в телеграм-канале <a id = "tg-link" href = "https://t.me/health_beauty_perm">ЗДОРОВЬЕ и КРАСОТА</a> (5 баллов)</li>
+            <li>Изменить имя на "Избранное", а в описание профиля добавить "Здоровье и красота — дело избранных!"(25 баллов)</li>
+            </ul>
+        </div>
+    </div>
+    <div id = "fame-container" style = "display: none">
+        <h3>Ого! Тогда пишите админу!</h3>
+        ...Админ добавит задание, связанное с твоим каналом или трендом в это приложение.<br><br>
+    </div>
+    <button id = "back-button" style = "display: none">🔄 На главную 🔄</button>
+    
+    <script>
+    localStorage.setItem("points", "0");
+         let poins = localStorage.getItem("points");
+         if (poins == null) poins = 0;
+         document.getElementById("points-count").textContent = poins;
+         if(poins == 5) document.getElementById("tg-task").textContent += "✅";
+         
+         document.getElementById("moneys").addEventListener("click", () => {
+            document.getElementById("start-screen-container").style.display = "none";
+            document.getElementById("moneys-container").style.display = "block";
+            document.getElementById("back-button").style.display = "block";
+         });
+         document.getElementById("fame").addEventListener("click", () => {
+            document.getElementById("start-screen-container").style.display = "none";
+            document.getElementById("fame-container").style.display = "block";
+            document.getElementById("back-button").style.display = "block";
+         });
+         
+         document.getElementById("back-button").addEventListener("click", () => {
+            document.getElementById("start-screen-container").style.display = "block";
+            document.getElementById("moneys-container").style.display = "none";
+            document.getElementById("fame-container").style.display = "none";
+            document.getElementById("back-button").style.display = "none";
+         });
+         
+         document.getElementById("tg-link").addEventListener("click", () => {
+             let currentCount = localStorage.getItem("points");
+             if(currentCount == null) currentCount = 0;
+             localStorage.setItem("points", currentCount + 5);
+             document.getElementById("tg-task").textContent += "✅";
+         });
+    </script>
+</body>
+</html>
