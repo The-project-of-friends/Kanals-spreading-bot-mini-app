@@ -95,7 +95,6 @@
     <button id = "back-button" style = "display: none">🔄 На главную 🔄</button>
     
     <script>
-    localStorage.setItem("points", "0");
          let poins = localStorage.getItem("points");
          if (poins == null) poins = 0;
          document.getElementById("points-count").textContent = poins;
@@ -124,6 +123,7 @@
              if(currentCount == null) currentCount = 0;
              localStorage.setItem("points", currentCount + 5);
              document.getElementById("tg-task").textContent += "✅";
+             document.getElementById("points-count").textContent = poins;
          });
     </script>
 </body>
